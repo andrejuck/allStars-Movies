@@ -9,20 +9,24 @@
             para prosseguir</h5>
     </div>
 
-
     <div class="container">
-        <div class="row align-items-center justify-content-between">
+        <div class="row align-items-center justify-content-between mb-3">
             <div class="col-md-2">
-                0/8 Selecionados
+                Selecionado
+                <br>
+                0 de 8 filmes
             </div>
             <div class="col-md-4 text-right">
                 <button type="button" mdbBtn color='primary' mdbWavesEffect>Gerar Meu Campeonato</button>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <app-filme></app-filme>                
+        <div *ngFor="let cols of rows">
+            <div class="row mt-2">
+                <div *ngFor="let filme of cols" class="col-md-3">
+                    <app-filme [filme]="filme"></app-filme>
+                </div>
             </div>
         </div>
+
     </div>
 </div>
