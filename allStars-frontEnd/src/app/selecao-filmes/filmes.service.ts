@@ -27,12 +27,13 @@ export class FilmesService {
     new Filme("tt7690670", "Superfly", 2018, 5.1),
     new Filme("tt6499752", "Upgrade", 2018, 7.8)
   ];
-  private url: string = 'http://copafilmes.azurewebsites.net/api/filmes';
+  private url: string = 'https://copafilmes.azurewebsites.net/api/filmes';
   constructor(private http: HttpClient) {
 
   }
   public getFilmes() {
-    return this.filmes.slice();
+    return this.filmes
+    .slice();
   }
   // public getFilmes() {
   //   return this.http

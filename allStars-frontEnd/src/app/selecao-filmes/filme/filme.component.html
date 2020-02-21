@@ -1,20 +1,20 @@
-    <mdb-card >
-        <mdb-card-body>
-            <div class="row  align-items-center">
-                <div class="col-md-2">
-                    <input type="checkbox">
+<mdb-card>
+    <mdb-card-body>
+        <div class="row align-items-center">
+            <div class="col-md-2">
+                <input type="checkbox" [disabled]="isDisabled" [checked]="filme.checked" (change)="onCheck($event)" (click)="onClick($event)">
+            </div>
+            <div class="col-md-10">
+                <div class="row titulo">
+                    {{filme.titulo}}
                 </div>
-                <div class="col-md-10">
-                    <div class="row">
-                        {{filme.titulo}}
-                    </div>
-                    <div class="row font-legend">
-                        {{filme.ano}}
-                    </div>
+                <div class="row font-legend">
+                    {{filme.ano}}
                 </div>
             </div>
-        </mdb-card-body>
-    </mdb-card>
+        </div>
+    </mdb-card-body>
+</mdb-card>
 <!-- 
 <div class="row mt-3 mt-3">
     <div class="col-md-3">

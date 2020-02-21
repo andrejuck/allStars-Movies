@@ -7,12 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SelecaoFilmesComponent } from './selecao-filmes/selecao-filmes.component';
 import { FilmeComponent } from './selecao-filmes/filme/filme.component';
+import { ResultadoFinalComponent } from './resultado-final/resultado-final.component';
+import { VencedoresComponent } from './resultado-final/vencedores/vencedores.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SelecaoFilmesComponent,
-    FilmeComponent
+    FilmeComponent,
+    ResultadoFinalComponent,
+    VencedoresComponent
   ],
   imports: [
     BrowserModule,

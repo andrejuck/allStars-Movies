@@ -1,31 +1,52 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { FilmesService } from './filmes.service';
 import { Filme } from '../shared/model/filme/filme.model';
 
 @Component({
   selector: 'app-selecao-filmes',
   templateUrl: './selecao-filmes.component.html',
-  styleUrls: ['./selecao-filmes.component.css']
+  styleUrls: ['./selecao-filmes.component.css'],
+  providers: [FilmesService]
 })
 export class SelecaoFilmesComponent implements OnInit {
 
-  private filmes:Array<Filme>;
+  private filmes: Array<Filme>;
   private rows = [];
-  constructor(private service:FilmesService) { }
+  private checkedItems: number = 0;
+  constructor(private service: FilmesService) { }
 
   ngOnInit() {
     this.filmes = this.service.getFilmes();
-    if(this.filmes.length > 0){
+    // this.service.getFilmes();
+    if (this.filmes.length > 0) {
       this.rows = this.groupColumns(this.filmes);
     }
   }
 
-  groupColumns(filmes: Filme[]){
-    const newRows =[];
+  groupColumns(filmes: Filme[]) {
+    const newRows = [];
 
-    for(let index = 0; index < filmes.length; index += 4){
+    for (let index = 0; index < filmes.length; index += 4) {
       newRows.push(filmes.slice(index, index + 4))
     }
     return newRows;
+  }
+
+  onChecked(checked: boolean) {
+    if (checked) {
+      if (this.checkedItems < 8)
+        this.checkedItems++;
+    }
+    else
+      this.checkedItems--;
+  }
+
+  onGerarCampeonatoClick(data) {
+    const filmesSelecionados = this.filmes.filter(x => x.checked);
+
+    if (filmesSelecionados.length !== 8)
+      alert("Por favor selecionar 8 filmes")
+    else
+      console.log(filmesSelecionados)
   }
 }

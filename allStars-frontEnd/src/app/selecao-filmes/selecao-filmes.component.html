@@ -14,16 +14,16 @@
             <div class="col-md-2">
                 Selecionado
                 <br>
-                0 de 8 filmes
+                {{checkedItems}} de 8 filmes
             </div>
             <div class="col-md-4 text-right">
-                <button type="button" mdbBtn color='primary' mdbWavesEffect>Gerar Meu Campeonato</button>
+                <button type="button" mdbBtn color='primary' mdbWavesEffect (click)="onGerarCampeonatoClick($event)">Gerar Meu Campeonato</button>
             </div>
         </div>
         <div *ngFor="let cols of rows">
             <div class="row mt-2">
                 <div *ngFor="let filme of cols" class="col-md-3">
-                    <app-filme [filme]="filme"></app-filme>
+                    <app-filme [filme]="filme" (onChecked)="onChecked($event)" [checkedItems]="checkedItems" ></app-filme>
                 </div>
             </div>
         </div>
