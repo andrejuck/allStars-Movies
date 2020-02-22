@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
-import { Filme } from 'src/app/shared/model/filme/filme.model';
+import { FilmeModel } from 'src/app/shared/model/filme.model';
 
 @Component({
   selector: 'app-filme',
@@ -14,7 +14,7 @@ export class FilmeComponent implements OnInit, OnChanges {
   @Input()
   checked: boolean = false;
 
-  @Input() filme: Filme;
+  @Input() filme: FilmeModel;
   @Input() checkedItems: number;
 
   private isDisabled = false;

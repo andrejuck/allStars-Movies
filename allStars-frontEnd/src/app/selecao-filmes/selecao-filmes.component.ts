@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
-import { FilmesService } from './filmes.service';
-import { Filme } from '../shared/model/filme/filme.model';
+import { FilmesService } from '../shared/services/filmes.service';
+import { FilmeModel } from '../shared/model/filme.model';
 
 @Component({
   selector: 'app-selecao-filmes',
@@ -10,7 +10,7 @@ import { Filme } from '../shared/model/filme/filme.model';
 })
 export class SelecaoFilmesComponent implements OnInit {
 
-  private filmes: Array<Filme>;
+  private filmes: Array<FilmeModel>;
   private rows = [];
   private checkedItems: number = 0;
   constructor(private service: FilmesService) { }
@@ -23,7 +23,7 @@ export class SelecaoFilmesComponent implements OnInit {
     }
   }
 
-  groupColumns(filmes: Filme[]) {
+  groupColumns(filmes: FilmeModel[]) {
     const newRows = [];
 
     for (let index = 0; index < filmes.length; index += 4) {

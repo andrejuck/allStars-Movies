@@ -1,8 +1,19 @@
 .icon{
     font-size: 1.5rem;
-    color: gold;
 }
 
 .titulo {
     margin: 0;
+}
+
+.gold {
+    color: gold;
+}
+
+.silver {
+    color: silver;
+}
+
+.bronze {
+    color: #cd7f32;
 }

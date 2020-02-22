@@ -5,12 +5,10 @@
         <h1>Resultado Final</h1>
 
         <hr style="max-width: 200px;">
-        <h5>Veja o resultado finald o Campeonato de filmes de forma simples e rápida</h5>
+        <h5>Veja o resultado final do Campeonato de filmes de forma simples e rápida</h5>
     </div>
 
     <div class="container mt-5">
-        <app-vencedores></app-vencedores>
-        <app-vencedores></app-vencedores>
-        <app-vencedores></app-vencedores>
+        <app-vencedores *ngFor='let vencedor of resultado' [vencedor]='vencedor'></app-vencedores>
     </div>
 </div>

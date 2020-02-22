@@ -9,6 +9,7 @@ import { SelecaoFilmesComponent } from './selecao-filmes/selecao-filmes.componen
 import { FilmeComponent } from './selecao-filmes/filme/filme.component';
 import { ResultadoFinalComponent } from './resultado-final/resultado-final.component';
 import { VencedoresComponent } from './resultado-final/vencedores/vencedores.component';
+import { TrofeuDirective } from './resultado-final/vencedores/trofeu.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { VencedoresComponent } from './resultado-final/vencedores/vencedores.com
     SelecaoFilmesComponent,
     FilmeComponent,
     ResultadoFinalComponent,
-    VencedoresComponent
+    VencedoresComponent,
+    TrofeuDirective
   ],
   imports: [
     BrowserModule,

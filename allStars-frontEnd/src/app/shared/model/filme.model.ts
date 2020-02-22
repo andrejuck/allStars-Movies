@@ -1,6 +1,4 @@
-import { VirtualTimeScheduler } from 'rxjs';
-
-export class Filme {
+export class FilmeModel {
   public id: string;
   public titulo: string;
   public ano: number;
