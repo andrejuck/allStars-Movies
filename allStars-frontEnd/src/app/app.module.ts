@@ -10,6 +10,7 @@ import { FilmeComponent } from './selecao-filmes/filme/filme.component';
 import { ResultadoFinalComponent } from './resultado-final/resultado-final.component';
 import { VencedoresComponent } from './resultado-final/vencedores/vencedores.component';
 import { TrofeuDirective } from './resultado-final/vencedores/trofeu.directive';
+import { FilmesService } from './shared/services/filmes.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { TrofeuDirective } from './resultado-final/vencedores/trofeu.directive';
     MDBBootstrapModule.forRoot(),
     HttpClientModule
   ],
-  providers: [],
+  providers: [FilmesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

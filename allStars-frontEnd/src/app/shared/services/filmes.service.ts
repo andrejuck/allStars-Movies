@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FilmeModel } from '../model/filme.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 
@@ -27,28 +27,19 @@ export class FilmesService {
     new FilmeModel("tt7690670", "Superfly", 2018, 5.1),
     new FilmeModel("tt6499752", "Upgrade", 2018, 7.8)
   ];
-  private url: string = 'https://copafilmes.azurewebsites.net/api/filmes';
-  constructor(private http: HttpClient) {
+  public filmesSelecionados: FilmeModel[];
+  private urlCopa: string = 'https://copafilmes.azurewebsites.net/api/filmes';
 
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
   }
+
+  constructor(private http: HttpClient) { }
+
   public getFilmes() {
     return this.filmes
     .slice();
   }
-  // public getFilmes() {
-  //   return this.http
-  //   .get(this.url)
-  //   .pipe(map(responseData => {
-  //     const postsArray = [];
-  //     for (const key in responseData) {
-  //       if(responseData.hasOwnProperty(key)){
-
-  //         postsArray.push({ ...responseData[key]})
-  //       }
-  //     }
-  //   }))
-  //   .subscribe(teste => {
-  //     console.log(teste)
-  //   })
-  // }
 }

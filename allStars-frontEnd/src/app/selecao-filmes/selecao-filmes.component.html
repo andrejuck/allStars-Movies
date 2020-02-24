@@ -17,7 +17,9 @@
                 {{checkedItems}} de 8 filmes
             </div>
             <div class="col-md-4 text-right">
-                <button type="button" mdbBtn color='primary' mdbWavesEffect (click)="onGerarCampeonatoClick($event)">Gerar Meu Campeonato</button>
+                <button type="button" mdbBtn color='primary' mdbWavesEffect 
+                (click)="onGerarCampeonatoClick($event)"
+                routerLink="/resultado-final" [state]="{ hello: 'world'}">Gerar Meu Campeonato</button>
             </div>
         </div>
         <div *ngFor="let cols of rows">
