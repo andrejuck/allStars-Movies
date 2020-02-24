@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FilmeModel } from '../model/filme.model';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { FilmeComponent } from 'src/app/selecao-filmes/filme/filme.component';
 
 
 @Injectable({
@@ -27,8 +28,9 @@ export class FilmesService {
     new FilmeModel("tt7690670", "Superfly", 2018, 5.1),
     new FilmeModel("tt6499752", "Upgrade", 2018, 7.8)
   ];
+  private filmesApi: FilmeModel[] = [];
   public filmesSelecionados: FilmeModel[];
-  private urlCopa: string = 'https://copafilmes.azurewebsites.net/api/filmes';
+  private urlCopa: string = 'http://all-starsmovies.azurewebsites.net/api/filmes';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -40,6 +42,11 @@ export class FilmesService {
 
   public getFilmes() {
     return this.filmes
-    .slice();
+      .slice();
+  }
+
+  public getFilmesApi() {
+    return this.http
+      .get<FilmeModel[]>(this.urlCopa);
   }
 }
